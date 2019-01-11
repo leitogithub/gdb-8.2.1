@@ -1109,7 +1109,7 @@ darwin_decode_message (mach_msg_header_t *hdr,
 	      pid_t res;
 	      int wstatus;
 
-	      res = wait4 (inf->pid, &wstatus, 0, NULL);
+	      res = wait4 (inf->pid, &wstatus, WNOHANG, NULL);
 	      if (res < 0 || res != inf->pid)
 		{
 		  printf_unfiltered (_("wait4: res=%d: %s\n"),
